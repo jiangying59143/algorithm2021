@@ -11,7 +11,7 @@ public class class04 {
     }
 
     public void process(int[] arr, int L, int R){
-        if(L <= R){
+        if(L >= R){
             return;
         }
         int mid = L + ((R-L)>>1);
