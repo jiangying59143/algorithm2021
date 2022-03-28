@@ -84,7 +84,7 @@ public class TrieTree {
     }
 
     public static class Right{
-        private final Map<String, Integer> map = new HashMap<>();
+        public final Map<String, Integer> map = new HashMap<>();
 
         public void insert(String word){
             map.put(word, map.containsKey(word) ? map.get(word)+1 : 1);
@@ -103,7 +103,7 @@ public class TrieTree {
         public int prefixNumber(String word){
             int count=0;
             for (String s : map.keySet()) {
-                if(s.startsWith(word)) count++;
+                if(s.startsWith(word)) count += map.get(s);
             }
             return count;
         }
