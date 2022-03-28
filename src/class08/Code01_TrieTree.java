@@ -99,6 +99,7 @@ public class Code01_TrieTree {
 		}
 	}
 
+
 	public static class Node2 {
 		public int pass;
 		public int end;

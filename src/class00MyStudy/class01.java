@@ -1,4 +1,4 @@
-package class00;
+package class00MyStudy;
 
 public class class01 {
 }

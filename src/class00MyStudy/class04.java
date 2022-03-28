@@ -1,4 +1,4 @@
-package class00;
+package class00MyStudy;
 
 import class01.Code01_SelectionSort;
 
