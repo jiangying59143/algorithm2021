@@ -4,8 +4,12 @@ import java.util.Arrays;
 public class A_Test {    
     public static void main(String[] args) {
 //        testTrieTree();
-        System.out.println(RadixSort.maxBits(1100));
-        System.out.println(RadixSort.getDigit(10, 2));
+//        System.out.println(RadixSort.maxBits(1100));
+//        System.out.println(RadixSort.getDigit(10, 2));
+        System.out.println(1/2);
+        System.out.println(-1/2);
+        System.out.println(-2/2);
+        System.out.println(-3/2);
     }
     public static void testTrieTree(){
         String[] strings = new String[]{"500V", "kqQ6r", "5n", "1", "341GH1fD1cq", "5s6SPTB", "Jy4xuAZ1oPqZ", "989", "gwzfm35720A7m", "ASg9zcQ", "O1Jt3Jgu4Ks84",

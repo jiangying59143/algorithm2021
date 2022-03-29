@@ -42,11 +42,6 @@ public class Code02_Heap {
 			return ans;
 		}
 
-		
-		
-		
-		
-		
 		// 新加进来的数，现在停在了index位置，请依次往上移动，
 		// 移动到0位置，或者干不掉自己的父亲了，停！
 		private void heapInsert(int[] arr, int index) {
@@ -153,13 +148,7 @@ public class Code02_Heap {
 		while(!heap.isEmpty()) {
 			System.out.println(heap.poll());
 		}
-		
-		
-		
-		
-		
-		
-		
+
 		int value = 1000;
 		int limit = 100;
 		int testTimes = 1000000;
