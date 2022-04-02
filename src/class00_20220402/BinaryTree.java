@@ -15,7 +15,9 @@ public class BinaryTree {
         Map<Integer, String> printList = new LinkedHashMap<>();
         while(!list.isEmpty()){
             Node node = list.poll();
-            printList.put(layer, printList.containsKey(layer) ? printList.get(layer) + " " + node.value :"" + node.value);
+            String value = String.valueOf(node.value);
+            if(value.length() == 1) value = value + " ";
+            printList.put(layer, printList.containsKey(layer) ? printList.get(layer) + " " + value :"" + value);
             if(node.left != null) {
                 list.add(node.left);
                 nextEndNode = node.left;
@@ -31,8 +33,8 @@ public class BinaryTree {
         }
 
         for (Map.Entry<Integer, String> integerStringEntry : printList.entrySet()) {
-            for (int i = 0; i < Math.pow(2, printList.size()-integerStringEntry.getKey())/2; i++) {
-                System.out.print(" ");
+            for (int i = 0; i < Math.pow(2, printList.size()-integerStringEntry.getKey()-1)+1; i++) {
+                System.out.print("  ");
             }
             System.out.println(integerStringEntry.getValue());
         }
@@ -49,6 +51,6 @@ public class BinaryTree {
 
     public static void main(String[] args) {
 //        PrintBT.printTree(generateRandomNode(5, 100));
-        print(generateRandomNode(5, 100));
+        print(generateRandomNode(3, 100));
     }
 }
