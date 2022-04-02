@@ -33,7 +33,7 @@ public class QuickSort {
         int less = L-1;
         int more = R;
         int index = L;
-        while(index < R){
+        while(index < more){
             if(arr[index] == arr[R]){
                 index ++;
             }else if(arr[index] < arr[R]){
@@ -68,7 +68,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int times = 1000;
+        int times = 10000;
         QuickSort quickSort = new QuickSort();
         while (times -- > 0){
             int[] arr = generateRandomArr(50);
