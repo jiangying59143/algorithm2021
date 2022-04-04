@@ -33,24 +33,35 @@ public class BinaryTree {
         }
 
         for (Map.Entry<Integer, String> integerStringEntry : printList.entrySet()) {
-            for (int i = 0; i < Math.pow(2, printList.size()-integerStringEntry.getKey()-1)+1; i++) {
-                System.out.print("  ");
+            for (int i = 0; i < printList.get(printList.size()-1).length()/2 - integerStringEntry.getValue().length() /2; i++) {
+                System.out.print(" ");
             }
             System.out.println(integerStringEntry.getValue());
         }
     }
 
+    public static void printTree(Node head){
+        PrintBT.printTree(head);
+    }
 
-    public static Node generateRandomNode(int level, int maxValue){
-        Node head = new Node((int)(maxValue*Math.random()));
-        if(level == 0) return head;
-        head.left = generateRandomNode(level-1, maxValue);
-        head.right = generateRandomNode(level-1, maxValue);
+
+    public static Node generateRandomNode(int maxLayer, int maxValue){
+        return generateRandomNode(1, maxLayer, maxValue);
+    }
+
+    public static Node generateRandomNode(int level, int maxLayer, int maxValue){
+        if(level > maxLayer || Math.random() > 0.5){
+            return null;
+        }
+
+        Node head = new Node((int)(maxValue * Math.random()));
+        head.left = generateRandomNode(level + 1, maxLayer, maxValue);
+        head.right = generateRandomNode(level + 1, maxLayer, maxValue);
         return head;
     }
 
     public static void main(String[] args) {
-//        PrintBT.printTree(generateRandomNode(5, 100));
-        print(generateRandomNode(3, 100));
+        printTree(generateRandomNode(5, 100));
+//        print(generateRandomNode(3, 100));
     }
 }

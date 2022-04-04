@@ -7,14 +7,43 @@ import java.util.LinkedList;
  * 2. 只有右子树的不是完全二叉树
  */
 public class BinaryTree_isCBT {
-    public boolean isCBT(Node head){
+    public boolean isCBT1(Node head){
         if(head == null){
             return false;
         }
-        return layerTraversal(head);
+        return layerTraversal1(head);
     }
 
-    public boolean layerTraversal(Node head){
+    public boolean layerTraversal1(Node head){
+
+        LinkedList<Node> queue = new LinkedList<>();
+
+        queue.offer(head);
+
+        boolean isLeaf = false;
+        while(!queue.isEmpty()){
+            Node node = queue.poll();
+            if(isLeaf && (node.left != null || node.right != null)
+                    || node.left == null && node.right != null){
+                return false;
+            }
+            if(node.left != null)queue.offer(node.left);
+            if(node.right != null) queue.offer(node.right);
+            if(node.left == null && node.right == null){
+                isLeaf = true;
+            }
+        }
+        return true;
+    }
+
+    public boolean isCBT2(Node head){
+        if(head == null){
+            return false;
+        }
+        return layerTraversal2(head);
+    }
+
+    public boolean layerTraversal2(Node head){
 
         LinkedList<Node> queue = new LinkedList<>();
 
