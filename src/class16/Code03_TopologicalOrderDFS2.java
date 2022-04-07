@@ -1,6 +1,7 @@
 package class16;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
@@ -50,6 +51,7 @@ public class Code03_TopologicalOrderDFS2 {
 		ArrayList<DirectedGraphNode> ans = new ArrayList<DirectedGraphNode>();
 		for (Record r : recordArr) {
 			ans.add(r.node);
+			System.out.println(r.node.label + "  " + r.nodes);
 		}
 		return ans;
 	}
@@ -68,9 +70,26 @@ public class Code03_TopologicalOrderDFS2 {
 		for (DirectedGraphNode next : cur.neighbors) {
 			nodes += f(next, order).nodes;
 		}
+		// 本省会加1
 		Record ans = new Record(cur, nodes + 1);
 		order.put(cur, ans);
 		return ans;
+	}
+
+
+	public static void main(String[] args) {
+		DirectedGraphNode directedGraphNode = new DirectedGraphNode(0);
+		DirectedGraphNode directedGraphNode1 = new DirectedGraphNode(1);
+		DirectedGraphNode directedGraphNode2 = new DirectedGraphNode(2);
+		DirectedGraphNode directedGraphNode3 = new DirectedGraphNode(3);
+		DirectedGraphNode directedGraphNode4 = new DirectedGraphNode(4);
+		directedGraphNode.neighbors.addAll(Arrays.asList(directedGraphNode1, directedGraphNode2, directedGraphNode3));
+		directedGraphNode1.neighbors.add(directedGraphNode4);
+		directedGraphNode2.neighbors.add(directedGraphNode4);
+		directedGraphNode3.neighbors.add(directedGraphNode4);
+		ArrayList<DirectedGraphNode> directedGraphNodes = new ArrayList<>();
+		directedGraphNodes.addAll(Arrays.asList(directedGraphNode, directedGraphNode1, directedGraphNode2, directedGraphNode3, directedGraphNode4));
+		topSort(directedGraphNodes);
 	}
 
 }
