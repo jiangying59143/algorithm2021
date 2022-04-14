@@ -21,6 +21,7 @@ public class RadixSort {
 
     public static int maxBits(int value){
         int res = 0;
+        //important
         while(value != 0){
             res++;
             value /= 10;
@@ -42,6 +43,7 @@ public class RadixSort {
                 bucket[i] += bucket[i-1];
             }
 
+            //important
             for (int r = R; r >= 0; r--) {
                 help[bucket[getDigit(arr[r], d)]-- -1] = arr[r];
             }
