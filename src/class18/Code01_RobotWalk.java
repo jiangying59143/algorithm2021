@@ -1,5 +1,7 @@
 package class18;
 
+import java.util.Arrays;
+
 public class Code01_RobotWalk {
 
 	public static int ways1(int N, int start, int aim, int K) {
@@ -44,7 +46,11 @@ public class Code01_RobotWalk {
 		// dp[cur][rest] == -1 -> process1(cur, rest)之前没算过！
 		// dp[cur][rest] != -1 -> process1(cur, rest)之前算过！返回值，dp[cur][rest]
 		// N+1 * K+1
-		return process2(start, K, aim, N, dp);
+		int ans = process2(start, K, aim, N, dp);
+		for (int[] ints : dp) {
+			System.out.println(Arrays.toString(ints));
+		}
+		return ans;
 	}
 
 	// cur 范: 1 ~ N
@@ -86,7 +92,7 @@ public class Code01_RobotWalk {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(ways1(5, 2, 4, 6));
+//		System.out.println(ways1(5, 2, 4, 6));
 		System.out.println(ways2(5, 2, 4, 6));
 		System.out.println(ways3(5, 2, 4, 6));
 	}

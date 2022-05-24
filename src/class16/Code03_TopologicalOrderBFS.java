@@ -15,7 +15,7 @@ public class Code03_TopologicalOrderBFS {
 
 		public DirectedGraphNode(int x) {
 			label = x;
-			neighbors = new ArrayList<DirectedGraphNode>();
+			neighbors = new ArrayList<>();
 		}
 	}
 

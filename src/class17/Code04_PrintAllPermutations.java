@@ -3,6 +3,11 @@ package class17;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 字符串全排列
+ *
+ * 排列组合问题 可以从循环开始 然后抽离 公共部分成为 递归
+ */
 public class Code04_PrintAllPermutations {
 
 	public static List<String> permutation1(String s) {
@@ -53,6 +58,25 @@ public class Code04_PrintAllPermutations {
 				g1(str, index + 1, ans);
 				swap(str, index, i);
 			}
+		}
+	}
+
+	public static void g1Understand(){
+		String s = "abc";
+		char[] str = s.toCharArray();
+		List<String> ans = new ArrayList<>();
+		for (int i = 0; i < 3; i++) {
+			swap(str, 0, i);
+			for (int j = 1; j < str.length; j++) {
+				swap(str, 1, j);
+				for (int k = 2; k < str.length; k++) {
+					swap(str, 2, k);
+					ans.add(String.valueOf(str));
+					swap(str, 2, k);
+				}
+				swap(str, 1, j);
+			}
+			swap(str, 0, i);
 		}
 	}
 

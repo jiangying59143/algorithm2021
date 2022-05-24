@@ -27,17 +27,37 @@ public class Code05_ReverseStackUsingRecursive {
 		}
 	}
 
+	//错误示例
+	public static int f1(Stack<Integer> stack) {
+		int cur = stack.pop();
+		int last = f1(stack);
+		if (!stack.isEmpty()) {
+			stack.push(last);
+		}
+		return cur;
+	}
+
 	public static void main(String[] args) {
-		Stack<Integer> test = new Stack<Integer>();
-		test.push(1);
-		test.push(2);
+		Stack<Integer> test = new Stack<>();
+//		test.push(1);
+//		test.push(2);
+//		test.push(3);
+//		test.push(4);
+//		test.push(5);
 		test.push(3);
-		test.push(4);
-		test.push(5);
+		test.push(2);
+		test.push(1);
 		reverse(test);
+		System.out.println("-------------");
 		while (!test.isEmpty()) {
 			System.out.println(test.pop());
 		}
+
+//		f1(test);
+//		System.out.println("-------------");
+//		while (!test.isEmpty()) {
+//			System.out.println(test.pop());
+//		}
 
 	}
 

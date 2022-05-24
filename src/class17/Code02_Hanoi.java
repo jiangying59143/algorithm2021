@@ -2,6 +2,11 @@ package class17;
 
 import java.util.Stack;
 
+/**
+ * 汉诺塔
+ *
+ * 移动问题  整体搬运
+ */
 public class Code02_Hanoi {
 
 	public static void hanoi1(int n) {
@@ -86,6 +91,22 @@ public class Code02_Hanoi {
 		}
 	}
 
+	public static void hanoiMe(int n) {
+		if (n > 0) {
+			func3(n, "left", "mid", "right");
+		}
+	}
+
+	public static void func3(int N, String plate1, String plate2, String plate3) {
+		if (N == 1) { // base
+			System.out.println("Move 1 from " + plate1 + " to " + plate3);
+		} else {
+			func3(N - 1, plate1, plate3, plate2);
+			System.out.println("Move " + N + " from " + plate1 + " to " + plate3);
+			func3(N - 1, plate2, plate1, plate3);
+		}
+	}
+
 	public static class Record {
 		public boolean finish1;
 		public int base;
@@ -131,7 +152,8 @@ public class Code02_Hanoi {
 		int n = 3;
 		hanoi1(n);
 		System.out.println("============");
-		hanoi2(n);
+//		hanoi2(n);
+		hanoiMe(n);
 //		System.out.println("============");
 //		hanoi3(n);
 	}

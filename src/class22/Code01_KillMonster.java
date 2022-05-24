@@ -1,5 +1,7 @@
 package class22;
 
+import java.util.Arrays;
+
 public class Code01_KillMonster {
 
 	public static double right(int N, int M, int K) {
@@ -27,6 +29,80 @@ public class Code01_KillMonster {
 			ways += process(times - 1, M, hp - i);
 		}
 		return ways;
+	}
+
+	public static double rightMe(int N, int M, int K) {
+		if (N < 1 || M < 1 || K < 1) {
+			return 0;
+		}
+		long all = (long) Math.pow(M + 1, K);
+		long kill = processMe(K, M, N);
+		return ((double) (all- kill) / (double) all);
+	}
+
+	// 怪兽还剩hp点血
+	// 每次的伤害在[0~M]范围上
+	// 还有times次可以砍
+	// 返回没砍死的情况数！
+	public static long processMe(int times, int M, int hp) {
+		if (times == 0) {
+			return hp > 0 ? 1 : 0;
+		}
+		if (hp <= 0) {
+			return 0;
+		}
+		long ways = 0;
+		for (int i = 0; i <= M; i++) {
+			ways += processMe(times - 1, M, hp - i);
+		}
+		return ways;
+	}
+
+	public static double dpMe1(int N, int M, int K) {
+		if (N < 1 || M < 1 || K < 1) {
+			return 0;
+		}
+		long all = (long) Math.pow(M + 1, K);
+		long[][] dp = new long[K + 1][N + 1];
+		for (int hp = 1; hp <= N; hp++) {
+			dp[0][hp] = 1;
+		}
+		for (int times = 1; times <= K; times++) {
+			dp[times][0] = 0;
+			for (int hp = 1; hp <= N; hp++) {
+				long ways = 0;
+				for (int i = 0; i <= M; i++) {
+					if (hp - i >= 0) {
+						ways += dp[times - 1][hp - i];
+					}
+				}
+				dp[times][hp] = ways;
+			}
+		}
+		long kill = dp[K][N];
+		return ((double)(all- kill) / (double) all);
+	}
+
+	public static double dpMe2(int N, int M, int K) {
+		if (N < 1 || M < 1 || K < 1) {
+			return 0;
+		}
+		long all = (long) Math.pow(M + 1, K);
+		long[][] dp = new long[K + 1][N + 1];
+		for (int hp = 1; hp <= N; hp++) {
+			dp[0][hp] = 1;
+		}
+		for (int times = 1; times <= K; times++) {
+			for (int hp = 1; hp <= N; hp++) {
+				dp[times][hp] = dp[times][hp - 1] + dp[times - 1][hp];
+				//dp[times][小于 0] = 0
+				if (hp - 1 - M >= 0) {
+					dp[times][hp] -= dp[times - 1][hp - 1 - M];
+				}
+			}
+		}
+		long kill = dp[K][N];
+		return ((double)(all- kill) / (double) all);
 	}
 
 	public static double dp1(int N, int M, int K) {
@@ -89,8 +165,15 @@ public class Code01_KillMonster {
 			double ans1 = right(N, M, K);
 			double ans2 = dp1(N, M, K);
 			double ans3 = dp2(N, M, K);
+			double ans4 = rightMe(N, M, K);
+			double ans5 = dpMe1(N, M, K);
+			double ans6 = dpMe2(N, M, K);
 			if (ans1 != ans2 || ans1 != ans3) {
 				System.out.println("Oops!");
+				break;
+			}
+			if (ans4 != ans5 || ans5 != ans6) {
+				System.out.println("Oops!" + ans4 + " " +ans5 + " " +ans6);
 				break;
 			}
 		}

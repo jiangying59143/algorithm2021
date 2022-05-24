@@ -2,6 +2,14 @@ package class24;
 
 import java.util.LinkedList;
 
+/**
+ *
+ 窗口内最大值或最小值更新结构的实现
+ 假设一个固定大小为W的窗口，依次划过arr，
+ 返回每一次滑出状况的最大值
+ 例如，arr = [4,3,5,4,3,3,6,7], W = 3
+ 返回：[5,5,5,4,6,7]
+ */
 public class Code01_SlidingWindowMaxArray {
 
 	// 暴力的对数器方法

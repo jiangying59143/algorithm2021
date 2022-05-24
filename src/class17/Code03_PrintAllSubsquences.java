@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+/**
+ * 字符串全序列
+ *
+ *
+ */
 public class Code03_PrintAllSubsquences {
 
 	// s -> "abc" ->

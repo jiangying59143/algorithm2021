@@ -85,5 +85,6 @@ public class Code03_NQueens {
 		end = System.currentTimeMillis();
 		System.out.println("cost time: " + (end - start) + "ms");
 
+
 	}
 }
