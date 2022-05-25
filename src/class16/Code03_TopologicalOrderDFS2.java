@@ -70,7 +70,7 @@ public class Code03_TopologicalOrderDFS2 {
 		for (DirectedGraphNode next : cur.neighbors) {
 			nodes += f(next, order).nodes;
 		}
-		// 本省会加1
+		// 本身会加1
 		Record ans = new Record(cur, nodes + 1);
 		order.put(cur, ans);
 		return ans;

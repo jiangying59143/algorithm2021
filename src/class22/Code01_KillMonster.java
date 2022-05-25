@@ -127,6 +127,10 @@ public class Code01_KillMonster {
 			}
 		}
 		long kill = dp[K][N];
+
+		for (int i = 0; i < dp.length; i++) {
+			System.out.println(Arrays.toString(dp[i]));
+		}
 		return (double) ((double) kill / (double) all);
 	}
 
@@ -176,6 +180,8 @@ public class Code01_KillMonster {
 				System.out.println("Oops!" + ans4 + " " +ans5 + " " +ans6);
 				break;
 			}
+
+			break;
 		}
 		System.out.println("测试结束");
 	}
