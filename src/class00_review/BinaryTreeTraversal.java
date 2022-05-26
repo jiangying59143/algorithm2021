@@ -1,5 +1,7 @@
 package class00_review;
 
+import java.util.LinkedList;
+
 public class BinaryTreeTraversal {
     static class BinaryTreeNode {
         public int val;
@@ -27,15 +29,45 @@ public class BinaryTreeTraversal {
             return;
         }
         if(0 == order){
-            System.out.println(node.val);
+            System.out.print(node.val + " ");
         }
         recursionOrder(node.left, order);
         if(1 == order){
-            System.out.println(node.val);
+            System.out.print(node.val + " ");
         }
         recursionOrder(node.right, order);
         if(2 == order){
-            System.out.println(node.val);
+            System.out.print(node.val + " ");
+        }
+    }
+
+    public static void preOrder(BinaryTreeNode node){
+        LinkedList<BinaryTreeNode> stack = new LinkedList<>();
+        stack.push(node);
+        while(!stack.isEmpty()){
+            BinaryTreeNode n = stack.pop();
+            System.out.print(n.val + " ");
+            if(n.right != null){
+                stack.push(n.right);
+            }
+            if(n.left != null){
+                stack.push(n.left);
+            }
+        }
+    }
+
+    public static void inOrder(BinaryTreeNode node){
+        LinkedList<BinaryTreeNode> stack = new LinkedList<>();
+        stack.push(node);
+        while(!stack.isEmpty()){
+            BinaryTreeNode n = stack.pop();
+            System.out.print(n.val + " ");
+            if(n.right != null){
+                stack.push(n.right);
+            }
+            if(n.left != null){
+                stack.push(n.left);
+            }
         }
     }
 
@@ -43,10 +75,17 @@ public class BinaryTreeTraversal {
         BinaryTreeNode treeNode = getSample();
         System.out.println("------preOrder--------");
         recursionOrder(treeNode, 0);
+        System.out.println();
         System.out.println("------inOrder--------");
         recursionOrder(treeNode, 1);
+        System.out.println();
         System.out.println("------posOrder--------");
         recursionOrder(treeNode, 2);
+        System.out.println();
+
+        System.out.println("------preOrder stack--------");
+        preOrder(treeNode);
+        System.out.println();
     }
 
 }
