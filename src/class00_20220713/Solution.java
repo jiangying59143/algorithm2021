@@ -47,8 +47,31 @@ public class Solution {
         return ans;
     }
 
+    public int maxProfit1(int k, int[] prices) {
+        int[][] res = new int[prices.length+1][k+1];
+        for (int i = 0; i < res.length-1; i++) {
+            for (int j = 1; j < res[i].length; j++) {
+                res[i][j] = -1;
+            }
+        }
+        for (int i = prices.length - 1; i >= 0; i--) {
+            for (int j = 1; j <= k; j++) {
+                int notBuyRes = res[i+1][j];
+                int buyRes = 0;
+                for (int i1 = i+1; i1 < prices.length; i1++) {
+                    buyRes = Math.max(buyRes, prices[i1]-prices[i] + res[i1+1][j-1]);
+                }
+                int ans = Math.max(notBuyRes, buyRes);
+                res[i][j] = ans;
+            }
+        }
+
+        return res[0][k];
+    }
+
     public static void main(String[] args) {
         Solution obj = new Solution();
         System.out.println(obj.maxProfit(2, new int[]{2, 4, 1}));
+        System.out.println(obj.maxProfit1(2, new int[]{2, 4, 1}));
     }
 }
