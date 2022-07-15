@@ -13,6 +13,15 @@ public class Node {
         this.nexts = new ArrayList<>();
     }
 
+    /**
+     * ************0************
+     * *********1***2***3*********
+     * *************4***5********
+     * ************************
+     * ************************
+     * ************************
+     * @return
+     */
     public static Node generateNode(){
         Node node = new Node(0);
         Node node1 = new Node(1);

@@ -1,7 +1,5 @@
 package class00_20220402;
 
-import class12.Code06_MaxDistance;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;

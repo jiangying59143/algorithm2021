@@ -1,7 +1,5 @@
 package class00_20220402;
 
-import class12.Code04_IsFull;
-
 public class IsFull {
     public static class Info{
         public int height;
@@ -18,6 +16,7 @@ public class IsFull {
             return true;
         }
         Info info = process(head);
+        // 等比数列 公式
         return (1<<info.height)-1 == info.nodeSize;
     }
 

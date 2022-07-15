@@ -1,6 +1,5 @@
 package class00_graph;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -24,6 +23,12 @@ public class BFS {
     }
 
 
+    /**
+     * ************0************
+     * *********1***2***3*********
+     * *************4***5********
+     * ************************
+     */
     public static void main(String[] args) {
         process(Node.generateNode());
     }

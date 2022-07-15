@@ -23,8 +23,15 @@ public class BinaryTree_isCBT {
         boolean isLeaf = false;
         while(!queue.isEmpty()){
             Node node = queue.poll();
+            /**
+             * **o*****|***o*******
+             * o***o***|**o**o*****
+             *o**o*****|o*o*o*o****
+             */
             if(isLeaf && (node.left != null || node.right != null)
-                    || node.left == null && node.right != null){
+//                    node.right != null 应该涵盖了下面的条件
+//                    || node.left == null && node.right != null
+                    ){
                 return false;
             }
             if(node.left != null)queue.offer(node.left);
