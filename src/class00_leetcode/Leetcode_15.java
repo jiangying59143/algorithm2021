@@ -1,4 +1,4 @@
-package class00_20220715;
+package class00_leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;

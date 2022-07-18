@@ -1,4 +1,4 @@
-package class00_20220715;
+package class00_leetcode;
 
 public class Leetcode_16 {
     static class Solution {

@@ -1,4 +1,4 @@
-package class00_20220713;
+package class00_leetcode;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  * 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
  */
-public class Solution {
+public class LeetCode_188 {
     public int maxProfit(int k, int[] prices) {
         int[][] res = new int[prices.length+1][k+1];
         for (int i = 0; i < res.length; i++) {
@@ -70,7 +70,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution obj = new Solution();
+        LeetCode_188 obj = new LeetCode_188();
         System.out.println(obj.maxProfit(2, new int[]{2, 4, 1}));
         System.out.println(obj.maxProfit1(2, new int[]{2, 4, 1}));
     }
