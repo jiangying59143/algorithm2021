@@ -55,4 +55,8 @@ public class Code03_LargestRectangleInHistogram {
 		return maxArea;
 	}
 
+	public static void main(String[] args) {
+		System.out.println(largestRectangleArea1(new int[]{2,1,2}));
+	}
+
 }
